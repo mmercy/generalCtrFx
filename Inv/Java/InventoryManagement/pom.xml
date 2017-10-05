@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.java.inventory</groupId>
+	<artifactId>InventoryManagement</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+
+	</dependencies>
+
+
+	<developers>
+		<developer>
+			<id>mmiron</id>
+			<name>María Mercedes Mirón Flores</name>
+			<email>mmer.abc@cyz.com</email>
+			<organization>ABC</organization>
+			<!-- <organizationUrl>https://www.alutiiq.com/</organizationUrl> -->
+			<roles>
+				<role>Consultor Java</role>
+			</roles>
+		</developer>
+	</developers>
+	<modules>
+		<module>InventoryManagement-repository</module>
+		<module>InventoryManagement-model</module>
+		<module>InventoryManagement-business</module>
+	</modules>
+</project>
