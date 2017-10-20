@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS InventoryDB;
 CREATE DATABASE InventoryDB;
 use InventoryDB;
+/* Homologado en Java*/
 CREATE TABLE TipoArticulo (
     id int NOT NULL AUTO_INCREMENT,
     tipoArticulo varchar(255),
@@ -12,7 +13,7 @@ CREATE TABLE TipoArticulo (
     activo boolean,
 	PRIMARY KEY (ID)
 );
-/*--TipoRol: id, rol;*/
+/*--TipoRol: id, rol; Homologado en Java*/
 CREATE TABLE TipoRol (
     id int NOT NULL AUTO_INCREMENT,
     tipoRol varchar(255),
@@ -26,6 +27,7 @@ CREATE TABLE TipoRol (
 );
 
 /*--Articulo: id, nombre, descripcion, fechaCreacion, usuarioAlta, codigoBarra, cantidadDisponibles, cantidadTrasladada, tipoArticulo;*/
+/* Homologado en Java*/
 CREATE TABLE Articulo (
     id int NOT NULL AUTO_INCREMENT,
     nombre varchar(255),
@@ -42,6 +44,7 @@ CREATE TABLE Articulo (
 );    
 
 /*--Usuario: identificador, nombres, paterno, materno, usuario, password, fechaCreacion, activo, rol*/
+/*Homologado en Java*/
 CREATE TABLE Usuario (
     id int NOT NULL AUTO_INCREMENT,
     nombres varchar(255),
@@ -59,7 +62,7 @@ CREATE TABLE Usuario (
 	FOREIGN KEY (idTipoRol) REFERENCES TipoRol(id)
 );    
 
-
+/** Homologada en Java */
 CREATE TABLE Direccion (
     id int NOT NULL AUTO_INCREMENT,
     numero varchar(100),
@@ -87,5 +90,6 @@ CREATE TABLE Almacen (
     fechaCreacion TIMESTAMP,
     fechaActualiza TIMESTAMP,
     activo boolean,
-	PRIMARY KEY (ID)
+	PRIMARY KEY (ID),
+    FOREIGN KEY (idDireccion) REFERENCES Direccion(id)
 );

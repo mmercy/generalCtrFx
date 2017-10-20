@@ -1,13 +1,11 @@
 package com.java.intentory.repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.java.intentory.repository.common.AbstractBaseMysqlRepository;
-import com.java.inventory.dto.Almacen;
 import com.java.inventory.dto.Articulo;
 
 @Repository("articuloRepository")
@@ -24,23 +22,16 @@ public class ArticuloRepository extends AbstractBaseMysqlRepository<Articulo> im
 	private Map<String, Object> getValues(Articulo articulo){
 		Map<String, Object> params = null;
 		if (articulo != null) {
-			params = new HashMap<String, Object>();
+			params = articulo.getValues();
 			
-			 /*id int NOT NULL AUTO_INCREMENT,
-			    nombre varchar(255),
+			 /* nombre varchar(255),
 			    descripcion varchar(255),
-			    fechaCreacion TIMESTAMP,
-			    idUsuarioAlta int,
 			    codigoBarra varchar(255),
-			    idTipoArticulo int,
-			    activo boolean,*/
+			    idTipoArticulo int,*/
 			params.put("nombre", articulo.getNombre());
 			params.put("descripcion", articulo.getDescripcion());
-			params.put("fechaCreacion", articulo.getFechaCreacion());
 			params.put("codigoBarra", articulo.getCodigoBarra());
-			params.put("idUsuarioAlta", articulo.getIdUsuarioCreacion());
 			params.put("idTipoArticulo", articulo.getTipoArticulo().getId());
-			params.put("activo", articulo.isActivo());
 		}
 		return params;
 	}

@@ -1,6 +1,5 @@
 package com.java.intentory.repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,16 +21,12 @@ public class TipoArticuloRepository extends AbstractBaseMysqlRepository<TipoArti
 	private Map<String, Object> getValues(TipoArticulo tipoArticulo){
 		Map<String, Object> params = null;
 		if (tipoArticulo != null) {
-			params = new HashMap<String, Object>();
+			params = tipoArticulo.getValues();
 			/*tipoArticulo varchar(255),
-		    descripcion varchar(255),
-		    fechaCreacion TIMESTAMP,
-		    activo boolean,*/
+		    descripcion varchar(255)*/
 			
 			params.put("tipoArticulo", tipoArticulo.getTipoArticulo());
 		    params.put("descripcion", tipoArticulo.getDescripcion());
-		    params.put("fechaCreacion", tipoArticulo.getFechaCreacion());
-		    params.put("activo", tipoArticulo.isActivo());
 		}
 		return params;
 	}

@@ -18,7 +18,6 @@ public class Almacen extends BaseModel implements Serializable  {
 	private String telefono1;
 	private String telefono2;
 	private Direccion direccion;
-	private String telefono;
 	private List<Articulo> articulos;
 
 	public String getNombre() {
@@ -51,12 +50,7 @@ public class Almacen extends BaseModel implements Serializable  {
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+
 	public List<Articulo> getArticulos() {
 		return articulos;
 	}

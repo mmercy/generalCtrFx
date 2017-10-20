@@ -1,6 +1,5 @@
 package com.java.intentory.repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,14 +43,25 @@ public class UsuarioRepository extends AbstractBaseMysqlRepository<Usuario> impl
 	private Map<String, Object> getValues(Usuario usuario){
 		Map<String, Object> params = null;
 		if (usuario != null) {
-			params = new HashMap<String, Object>();
-			/*rol varchar(255),
-		    descripcion varchar(255),
-		    fechaCreacion TIMESTAMP,*/
+			params = usuario.getValues();
+			/* nombres varchar(255),
+			    paterno varchar(255),
+			    materno varchar(255),
+			    usuario varchar(255),
+			    pass varchar(255),
+			    idTipoRol int,
+			 * */
 			
 			
-		    params.put("fechaCreacion", usuario.getFechaCreacion());
-		    params.put("activo", usuario.isActivo());
+		    params.put("nombres", usuario.getNombres());
+		    params.put("paterno", usuario.getPaterno());
+		    params.put("materno", usuario.getMaterno());
+		    params.put("usuario", usuario.getUsuario());
+		    params.put("pass", usuario.getPassword());
+		    if ( usuario.getRol() != null) {
+		    	params.put("idTipoRol", usuario.getRol().getId());
+			}
+		    
 		}
 		return params;
 	}

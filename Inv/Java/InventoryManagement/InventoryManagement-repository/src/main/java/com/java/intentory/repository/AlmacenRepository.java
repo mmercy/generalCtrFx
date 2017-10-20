@@ -44,20 +44,22 @@ public class AlmacenRepository extends AbstractBaseMysqlRepository<Almacen> impl
 	private Map<String, Object> getValues(Almacen almacen){
 		Map<String, Object> params = null;
 		if (almacen != null) {
-			params = new HashMap<String, Object>();
+			params = almacen.getValues();
 			/*nombre varchar(255),
-		    descripcion varchar(255),
-		    telefono1 varchar(20),
-		    telefono2 varchar(20),
-		    fechaCreacion TIMESTAMP,
-		    activo boolean,
-		    idDireccion int,*/
+    descripcion varchar(255),
+    telefono1 varchar(20),
+    telefono2 varchar(20),
+    idDireccion int,*/
 			
 			params.put("nombre", almacen.getNombre());
 		    params.put("descripcion", almacen.getDescripcion());
-		    params.put("fechaCreacion", almacen.getFechaCreacion());
-		    params.put("activo", almacen.isActivo());
-		    params.put("idDireccion", almacen.getDireccion().getId());
+		    params.put("telefono1", almacen.getTelefono1());
+		    params.put("telefono2", almacen.getTelefono2());
+		    
+		    if (almacen.getDireccion() != null) {
+		    	params.put("idDireccion", almacen.getDireccion().getId());
+			}
+		    
 		}
 		return params;
 	}

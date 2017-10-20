@@ -1,12 +1,14 @@
 package com.java.inventory.dto.base;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class BaseModel {
 
 	private Integer id;
-	private boolean activo;
+	private Boolean activo;
 	private Date fechaCreacion;
 	private Date fechaActualizacion;
 	
@@ -48,5 +50,34 @@ public class BaseModel {
 	}
 	public void setIdUsuarioActualizacion(Integer idUsuarioActualizacion) {
 		this.idUsuarioActualizacion = idUsuarioActualizacion;
+	}
+	
+	public Map<String, Object> getValues () {
+		Map<String, Object> params = null;
+		if (id != null || idUsuarioActualizacion!= null || idUsuarioCreacion != null) {
+			params = new HashMap<String, Object>();
+			if (id != null) {
+				params.put("id", id);
+			}
+			if (idUsuarioCreacion != null) {
+				params.put("idUsuarioAlta", idUsuarioCreacion);
+			}
+			
+			if (idUsuarioActualizacion != null) {
+				params.put("idUsuarioActualiza", idUsuarioActualizacion);
+			}
+			
+			if (fechaCreacion != null) {
+				params.put("fechaCreacion", fechaCreacion);
+			}
+			if (fechaActualizacion != null) {
+				params.put("fechaActualiza", fechaActualizacion);
+			}
+			if (activo != null) {
+				params.put("activo", activo);
+			}
+		}
+		
+		return params;
 	}
 }
