@@ -34,11 +34,6 @@ public class UsuarioRepository extends AbstractBaseMysqlRepository<Usuario> impl
 		
 	}
 
-	@Override
-	public List<Usuario> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	private Map<String, Object> getValues(Usuario usuario){
 		Map<String, Object> params = null;
@@ -64,5 +59,11 @@ public class UsuarioRepository extends AbstractBaseMysqlRepository<Usuario> impl
 		    
 		}
 		return params;
+	}
+
+	@Override
+	public List<Usuario> listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

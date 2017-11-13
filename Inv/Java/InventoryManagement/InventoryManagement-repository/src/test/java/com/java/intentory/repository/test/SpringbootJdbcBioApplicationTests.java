@@ -21,6 +21,7 @@ public class SpringbootJdbcBioApplicationTests {
 	@Test
 	public void tipoRolTest(){
 		TipoRol tipoRol = new TipoRol();
+		tipoRol.setId(1);
 		tipoRol.setRol("Test");
 		tipoRol.setDesription("Pruebaas");
 		tipoRol.setFechaCreacion(new Date());

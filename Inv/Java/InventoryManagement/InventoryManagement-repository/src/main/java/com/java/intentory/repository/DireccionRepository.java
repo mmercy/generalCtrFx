@@ -31,13 +31,6 @@ public class DireccionRepository extends AbstractBaseMysqlRepository<Direccion> 
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public List<Direccion> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 	private Map<String, Object> getValues(Direccion direccion){
 		Map<String, Object> params = null;
@@ -56,6 +49,12 @@ public class DireccionRepository extends AbstractBaseMysqlRepository<Direccion> 
 			params.put("estado", direccion.getEstado());
 		}
 		return params;
+	}
+
+	@Override
+	public List<Direccion> listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

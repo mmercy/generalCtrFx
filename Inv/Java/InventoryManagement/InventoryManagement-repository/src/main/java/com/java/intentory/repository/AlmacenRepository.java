@@ -1,12 +1,12 @@
 package com.java.intentory.repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.java.intentory.repository.common.AbstractBaseMysqlRepository;
+import com.java.intentory.repository.rowmapper.AlmacenRowMapper;
 import com.java.inventory.dto.Almacen;
 
 @Repository("almacenRepository")
@@ -34,11 +34,9 @@ public class AlmacenRepository extends AbstractBaseMysqlRepository<Almacen> impl
 		
 	}
 
-
-	@Override
-	public List<Almacen> listar() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Almacen> listar(Object ... params) {
+		String sql = "";
+		return super.findByQuery(sql, new AlmacenRowMapper(), params);
 	}
 	
 	private Map<String, Object> getValues(Almacen almacen){
@@ -46,10 +44,10 @@ public class AlmacenRepository extends AbstractBaseMysqlRepository<Almacen> impl
 		if (almacen != null) {
 			params = almacen.getValues();
 			/*nombre varchar(255),
-    descripcion varchar(255),
-    telefono1 varchar(20),
-    telefono2 varchar(20),
-    idDireccion int,*/
+		    descripcion varchar(255),
+		    telefono1 varchar(20),
+		    telefono2 varchar(20),
+		    idDireccion int,*/
 			
 			params.put("nombre", almacen.getNombre());
 		    params.put("descripcion", almacen.getDescripcion());
@@ -62,6 +60,12 @@ public class AlmacenRepository extends AbstractBaseMysqlRepository<Almacen> impl
 		    
 		}
 		return params;
+	}
+
+
+	public List<Almacen> listar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

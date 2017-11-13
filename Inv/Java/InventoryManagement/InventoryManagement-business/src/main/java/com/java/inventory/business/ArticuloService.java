@@ -2,9 +2,12 @@ package com.java.inventory.business;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.java.inventory.business.def.IOperaciones;
 import com.java.inventory.dto.Articulo;
 
+@Service("articuloService")
 public class ArticuloService implements IOperaciones<Articulo> {
 
 	public void guardar(Articulo objAcceso) {

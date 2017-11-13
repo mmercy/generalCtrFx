@@ -1,11 +1,13 @@
 package com.java.intentory.repository.common;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
@@ -59,5 +61,33 @@ public abstract class AbstractBaseMysqlRepository<T extends Serializable> implem
 				this.jdbcTemplateBase.getDataSource());
 
 		return jdbcInsertNyV.withTableName(tableName).execute(params);
+	}
+	
+	/**
+	 * Metodo encargado de guardar o actualizar en la base de datos.
+	 *
+	 * @param sql
+	 *            SQL de la consulta a realizar.
+	 * @param params
+	 *            Argumentos para el save or update.
+	 * @return 1 si se guardo o actualizo correctamente.
+	 */
+	protected final int saveOrUpdate(final String sql, final Object[] params) {
+		return this.jdbcTemplateBase.update(sql, params);
+	}
+	
+	
+	
+	/**
+	 * Metodo encargado de realizar consultas.
+	 *
+	 * @param sql
+	 *            SQL de la consulta a realizar.
+	 * @param args
+	 *            Argumentos para la consulta.
+	 * @return Listado de objetos de la entidad.
+	 */
+	protected final List<T> findByQuery(final String sql, RowMapper<T> rowmapper, final Object... args) {
+		return this.jdbcTemplateBase.query(sql, rowmapper, args);
 	}
 }

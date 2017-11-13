@@ -50,5 +50,6 @@
 		<module>InventoryManagement-repository</module>
 		<module>InventoryManagement-model</module>
 		<module>InventoryManagement-business</module>
+		<module>InventoryManagement-rest</module>
 	</modules>
 </project>

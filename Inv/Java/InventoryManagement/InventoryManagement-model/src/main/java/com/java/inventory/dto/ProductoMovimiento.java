@@ -1,14 +1,17 @@
 package com.java.inventory.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
+import com.java.inventory.dto.base.BaseModel;
 
 import lombok.Data;
 import lombok.ToString;
 
 @Data
 @ToString
-public class ProductoMovimiento implements ObjetoAcceso {
+public class ProductoMovimiento extends BaseModel implements Serializable {
 	
 	/**
 	 * Serial Version.

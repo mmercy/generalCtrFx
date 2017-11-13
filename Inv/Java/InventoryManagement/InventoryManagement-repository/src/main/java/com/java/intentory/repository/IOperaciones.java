@@ -8,5 +8,5 @@ public interface IOperaciones <T extends BaseModel> {
 
 	void guardar (T objAcceso);
 	void borradoLogico (T objAcceso);
-	List<T> listar();
+	public List<T> listar();
 }

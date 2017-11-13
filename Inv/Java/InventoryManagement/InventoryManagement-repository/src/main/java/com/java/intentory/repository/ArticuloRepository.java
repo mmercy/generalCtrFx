@@ -58,4 +58,5 @@ public class ArticuloRepository extends AbstractBaseMysqlRepository<Articulo> im
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
